@@ -1,9 +1,30 @@
 var n=document.querySelectorAll(".drum").length;
 
+// to play by click
 for(var i=0;i<n;i++){
 document.querySelectorAll(".drum")[i].addEventListener("click",function(){
     
-    var button=this.innerHTML;
+    var button = this.innerHTML;
+    play(button);
+
+    })
+}
+ 
+
+
+// to play by keyboard
+document.addEventListener("keypress",(event)=>{
+    console.log(event);
+
+
+    var button=event.key;
+    play(button);
+
+})
+
+// function which will play the sound
+function play(button) {
+
     switch (button) {
         case button='w':
         var audio=new Audio('sounds/tom-4.mp3');
@@ -41,9 +62,6 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function(){
             default:
             break;
     }
-    
-    
-    })
 
+    
 }
- 
