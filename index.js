@@ -6,6 +6,7 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function(){
     
     var button = this.innerHTML;
     play(button);
+    setAnimation(button);
 
     })
 }
@@ -19,6 +20,7 @@ document.addEventListener("keypress",(event)=>{
 
     var button=event.key;
     play(button);
+    setAnimation(button);
 
 })
 
@@ -62,6 +64,23 @@ function play(button) {
             default:
             break;
     }
+
+    
+}
+
+
+
+// for animation when button is clicked
+
+
+function setAnimation(key) {
+
+    var button = document.querySelector("."+key);
+    button.classList.add("pressed");
+
+    window.setTimeout(function (event) {
+        button.classList.remove("pressed");
+    },100)
 
     
 }
